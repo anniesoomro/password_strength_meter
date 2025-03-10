@@ -2,7 +2,7 @@ import streamlit as st
 import re
 import random
 import string
-from datetime import datetime, timedelta
+
 
 # Custom CSS for modern dark-light theme and responsive design
 def inject_custom_css():
@@ -211,11 +211,7 @@ def main():
             for message in feedback:
                 st.markdown(f"- {message}")
 
-    # Password Expiry Suggestion
-    if password:
-        expiry_days = 90  # Suggest changing password every 90 days
-        expiry_date = datetime.now().date() + timedelta(days=expiry_days)
-        st.info(f"💡 Consider changing your password by {expiry_date} for better security.")
+   
 
 # Run the app
 if __name__ == "__main__":
