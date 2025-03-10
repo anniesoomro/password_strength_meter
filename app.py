@@ -2,7 +2,6 @@ import streamlit as st
 import re
 import random
 import string
-import pyperclip  # For copying to clipboard
 from datetime import datetime, timedelta
 
 # Custom CSS for modern dark-light theme and responsive design
@@ -166,7 +165,6 @@ def main():
     1. Enter your password in the input box.
     2. Click **Check Strength** to evaluate your password.
     3. Use the **Generate Password** option to create a strong password.
-    4. Copy the generated password to your clipboard.
     """)
 
     # Password Generator Settings in Sidebar
@@ -201,12 +199,6 @@ def main():
             use_special_chars=use_special_chars
         )
         st.text_input("Generated Password:", value=password, disabled=True, key="generated_password")
-        if st.button("Copy to Clipboard"):
-            try:
-                pyperclip.copy(password)
-                st.success("✅ Password copied to clipboard!")
-            except Exception as e:
-                st.error("❌ Failed to copy to clipboard. Please install pyperclip using `pip install pyperclip`.")
 
     # Check Password Strength Button
     if st.button("Check Strength"):
